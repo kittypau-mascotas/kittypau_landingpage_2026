@@ -79,10 +79,15 @@ export default {
             height: "0",
           },
         },
+        "arrow-point": {
+          "0%, 100%": { transform: "translateX(0) translateY(0) rotate(0deg)" },
+          "50%": { transform: "translateX(8px) translateY(-8px) rotate(5deg)" } // Mueve y rota ligeramente
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "arrow-point": "arrow-point 1.5s ease-in-out infinite" // Animación continua
       },
     },
   },

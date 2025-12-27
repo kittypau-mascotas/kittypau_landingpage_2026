@@ -79,8 +79,10 @@ export default function LandingPage() {
                 <CardDescription>Anticípate a los problemas de salud con datos, no solo con instinto.</CardDescription>
               </div>
               <div className="flex flex-row items-center gap-2 flex-shrink-0">
-                <img src={flehca} alt="Arrow" className="w-12 h-12" />
-                <Button disabled className="w-full sm:w-auto bg-[#FF847C] hover:bg-[#E56A5D]">Acceder a la App</Button>
+                <img src={flehca} alt="Arrow" className="w-12 h-12 animate-arrow-point" />
+                <Button asChild className="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 shadow-lg px-6">
+                  <a href="https://demo-app-kittypau-2025.vercel.app/" target="_blank" rel="noopener noreferrer">Acceder a la App</a>
+                </Button>
               </div>
             </CardHeader>
             <CardContent className="grid md:grid-cols-3 gap-8 text-center">
