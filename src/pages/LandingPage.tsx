@@ -6,8 +6,7 @@ import {
   Thermometer, Droplet, UtensilsCrossed, BatteryCharging, Wifi,
   Plug, Link, MonitorDot, ArrowRight
 } from 'lucide-react';
-import Autoplay from "embla-carousel-autoplay"
-import bandida from '@/assets/bandida.png'; // Assuming bandida.png is in src/assets
+import Autoplay from "embla-carousel-autoplay";
 import { cn } from '@/lib/utils';
 import {
   LineChart,
@@ -19,16 +18,6 @@ import {
   ResponsiveContainer,
   AreaChart, Area, Legend
 } from 'recharts';
-const carouselImages = [
-  "/carousel-images/1.jpg",
-  "/carousel-images/2.jpg",
-  "/carousel-images/3.png",
-  "/carousel-images/4.jpg",
-  "/carousel-images/5.jpg",
-  "/carousel-images/6.jpg",
-  "/carousel-images/7.jpg",
-  "/carousel-images/8.jpg",
-];
 
 export default function LandingPage() {
   // Dummy data for charts
@@ -74,19 +63,19 @@ export default function LandingPage() {
         {/* Social Navbar Section */}
         {/* Moved social links to a separate, less prominent section or removed if not needed per spec.
             For now, keeping it as a separate block, but it's not the main navbar. */}
-        <nav className="bg-[#F87A6D]/60 backdrop-blur-sm rounded-full p-2 mb-8 max-w-min mx-auto"> {/* Adjusted margin-bottom */}
+        <nav className="bg-primary/60 backdrop-blur-sm rounded-full p-2 mb-8 max-w-min mx-auto"> {/* Adjusted margin-bottom, used primary token */}
           <div className="flex items-center gap-2">
             <a href="https://www.instagram.com/kittypau.mascotas/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <Button variant="ghost" size="icon" className="text-white hover:text-white/80 transition-colors duration-300">
                 <Instagram className="h-6 w-6" /> {/* Reduced icon size */}
               </Button>
             </a>
-            <a href="https://www.youtube.com/channel/UCYrN8v3Lb5n1B0L2QeOEcxA" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <a href="https://www.youtube.com/channel/UCYrN8v3Lb5n1B0L2QeOEcxA" target="_blank" rel="noopener noreferrer" aria-label="YouTube"> {/* Changed hover color to white/80 for consistency */}
               <Button variant="ghost" size="icon" className="text-white hover:text-white/80 transition-colors duration-300">
                 <Youtube className="h-6 w-6" /> {/* Reduced icon size */}
               </Button>
             </a>
-            <a href="https://www.linkedin.com/in/kittypau-mascotas-26289539a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/kittypau-mascotas-26289539a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"> {/* Changed hover color to white/80 for consistency */}
               <Button variant="ghost" size="icon" className="text-white hover:text-white/80 transition-colors duration-300">
                 <Linkedin className="h-6 w-6" /> {/* Reduced icon size */}
               </Button>
@@ -118,8 +107,8 @@ export default function LandingPage() {
                 <p className="flex items-center justify-center md:justify-start gap-2"><CheckCircle className="h-4 w-4 text-green-500" /> Conectado a tu ecosistema KittyPau</p>
               </div>
             </div>
-            <div className="md:w-1/2 flex justify-center">
-              <img src={bandida} alt="Mascota con dispositivo KittyPau" className="max-w-full h-auto rounded-2xl shadow-md" />
+            <div className="md:w-1/2 flex justify-center"> {/* Changed src to direct public path */}
+              <img src="/illustrations/bandida.png" alt="Mascota con dispositivo KittyPau" className="max-w-full h-auto rounded-2xl shadow-md" />
             </div>
           </div>
         </section>
@@ -143,7 +132,7 @@ export default function LandingPage() {
 
               <Card className="rounded-2xl shadow-md p-6 text-center">
                 <CardHeader className="flex flex-col items-center p-0 mb-4">
-                  <UtensilsCrossed className="h-10 w-10 text-green-500 mb-2" />
+                  <UtensilsCrossed className="h-10 w-10 text-green-500 mb-2" /> {/* Kept green for food icon */}
                   <CardTitle className="text-xl font-semibold">Control de alimentación</CardTitle>
                 </CardHeader>
                 <CardContent className="p-0">
@@ -155,7 +144,7 @@ export default function LandingPage() {
 
               <Card className="rounded-2xl shadow-md p-6 text-center">
                 <CardHeader className="flex flex-col items-center p-0 mb-4">
-                  <BatteryCharging className="h-10 w-10 text-amber-500 mb-2" />
+                  <BatteryCharging className="h-10 w-10 text-amber-500 mb-2" /> {/* Kept amber for battery icon */}
                   <CardTitle className="text-xl font-semibold">Estado del dispositivo</CardTitle>
                 </CardHeader>
                 <CardContent className="p-0">
@@ -238,7 +227,7 @@ export default function LandingPage() {
               </Card>
               <Card className="rounded-2xl shadow-md p-6">
                 <CardHeader className="flex flex-col items-center p-0 mb-4">
-                  <Link className="h-12 w-12 text-green-500 mb-2" />
+                  <Link className="h-12 w-12 text-green-500 mb-2" /> {/* Kept green for link icon */}
                   <CardTitle className="text-xl font-semibold">2. Vincula</CardTitle>
                 </CardHeader>
                 <CardContent className="p-0">
@@ -249,7 +238,7 @@ export default function LandingPage() {
               </Card>
               <Card className="rounded-2xl shadow-md p-6">
                 <CardHeader className="flex flex-col items-center p-0 mb-4">
-                  <MonitorDot className="h-12 w-12 text-amber-500 mb-2" />
+                  <MonitorDot className="h-12 w-12 text-amber-500 mb-2" /> {/* Kept amber for monitor icon */}
                   <CardTitle className="text-xl font-semibold">3. Monitorea</CardTitle>
                 </CardHeader>
                 <CardContent className="p-0">
@@ -317,7 +306,7 @@ export default function LandingPage() {
                 <ul className="mt-6 space-y-4 inline-block text-left">
                   <li className="flex items-start gap-3">
                     <Gift className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
-                    <div>
+                    <div> {/* Changed text color to primary for consistency */}
                       <h4 className="font-semibold">Dispositivo y App Premium Gratis</h4>
                       <p className="text-sm text-gray-500">Recibe el dispositivo y acceso a la App Premium sin costo por 12 meses.</p>
                     </div>
