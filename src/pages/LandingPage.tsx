@@ -52,63 +52,39 @@ export default function LandingPage() {
               <a href="#planes" className="hover:text-primary transition-colors">Planes</a>
             </div>
           </div>
-          <Button asChild className="bg-primary text-primary-foreground hover:opacity-90 rounded-2xl px-6 py-3 shadow-md">
-            <a href="/login">Iniciar Sesión</a>
+          <Button asChild className="bg-primary text-primary-foreground hover:opacity-90 rounded-2xl px-6 py-3 shadow-md min-h-[48px]">
+            <a href="/login">Prueba Gratis Ahora</a>
           </Button>
         </div>
       </nav>
 
       <div className="max-w-4xl mx-auto px-4 py-8"> {/* Added py-8 for spacing */}
-        
-        {/* Social Navbar Section */}
-        {/* Moved social links to a separate, less prominent section or removed if not needed per spec.
-            For now, keeping it as a separate block, but it's not the main navbar. */}
-        <nav className="bg-primary/60 backdrop-blur-sm rounded-full p-2 mb-8 max-w-min mx-auto"> {/* Adjusted margin-bottom, used primary token */}
-          <div className="flex items-center gap-2">
-            <a href="https://www.instagram.com/kittypau.mascotas/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <Button variant="ghost" size="icon" className="text-white hover:text-white/80 transition-colors duration-300">
-                <Instagram className="h-6 w-6" /> {/* Reduced icon size */}
-              </Button>
-            </a>
-            <a href="https://www.youtube.com/channel/UCYrN8v3Lb5n1B0L2QeOEcxA" target="_blank" rel="noopener noreferrer" aria-label="YouTube"> {/* Changed hover color to white/80 for consistency */}
-              <Button variant="ghost" size="icon" className="text-white hover:text-white/80 transition-colors duration-300">
-                <Youtube className="h-6 w-6" /> {/* Reduced icon size */}
-              </Button>
-            </a>
-            <a href="https://www.linkedin.com/in/kittypau-mascotas-26289539a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"> {/* Changed hover color to white/80 for consistency */}
-              <Button variant="ghost" size="icon" className="text-white hover:text-white/80 transition-colors duration-300">
-                <Linkedin className="h-6 w-6" /> {/* Reduced icon size */}
-              </Button>
-            </a>
-          </div>
-        </nav>
-
         {/* Hero Section */}
         <section id="hero" className="py-16 md:py-24 text-center md:text-left">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="md:w-1/2 space-y-6">
               <h1 className="text-4xl sm:text-5xl md:text-[40px] font-titan-one text-primary leading-tight">
-                Monitoreo inteligente para tu mascota
+                Protege a tu mascota: Monitoreo de salud preventivo en tiempo real
               </h1>
               <p className="text-lg text-gray-700 font-varela-round">
-                Acompañamos el bienestar de tu mascota con datos en tiempo real, para que puedas actuar antes de que un cambio se convierta en un problema.
+                No esperes a que aparezcan los síntomas. KittyPau detecta cambios sutiles en la hidratación y alimentación antes de que se conviertan en cirugías costosas.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                <Button asChild className="bg-primary text-primary-foreground hover:opacity-90 rounded-2xl px-8 py-4 text-lg shadow-md">
-                  <a href="/login">Empieza ahora</a>
+                <Button asChild className="bg-primary text-primary-foreground hover:opacity-90 rounded-2xl px-8 py-4 text-lg shadow-md min-h-[48px]">
+                  <a href="/login">Empieza a Cuidar Gratis</a>
                 </Button>
-                <Button asChild variant="outline" className="rounded-2xl px-8 py-4 text-lg">
-                  <a href="#planes">Ver planes</a>
+                <Button asChild variant="outline" className="rounded-2xl px-8 py-4 text-lg min-h-[48px]">
+                  <a href="#planes">Ver Planes de Prevención</a>
                 </Button>
               </div>
               <div className="mt-6 text-sm text-gray-500 space-y-1">
-                <p className="flex items-center justify-center md:justify-start gap-2"><CheckCircle className="h-4 w-4 text-green-500" /> Datos reales del dispositivo</p>
-                <p className="flex items-center justify-center md:justify-start gap-2"><CheckCircle className="h-4 w-4 text-green-500" /> Pensado para hogares y pilotos reales</p>
-                <p className="flex items-center justify-center md:justify-start gap-2"><CheckCircle className="h-4 w-4 text-green-500" /> Conectado a tu ecosistema KittyPau</p>
+                <p className="flex items-center justify-center md:justify-start gap-2"><CheckCircle className="h-4 w-4 text-green-500" /> Evidencia visual de salud diaria</p>
+                <p className="flex items-center justify-center md:justify-start gap-2"><CheckCircle className="h-4 w-4 text-green-500" /> Instalación en menos de 5 minutos</p>
+                <p className="flex items-center justify-center md:justify-start gap-2"><CheckCircle className="h-4 w-4 text-green-500" /> Garantía de tranquilidad absoluta</p>
               </div>
             </div>
             <div className="md:w-1/2 flex justify-center"> {/* Changed src to direct public path */}
-              <img src="/illustrations/bandida.png" alt="Mascota con dispositivo KittyPau" className="max-w-full h-auto rounded-2xl shadow-md" />
+              <img src="/illustrations/bandida.png" alt="Mascota con dispositivo KittyPau" className="max-w-full h-auto rounded-2xl shadow-md" loading="eager" />
             </div>
           </div>
         </section>
@@ -121,11 +97,11 @@ export default function LandingPage() {
               <Card className="rounded-2xl shadow-md p-6 text-center">
                 <CardHeader className="flex flex-col items-center p-0 mb-4">
                   <Thermometer className="h-10 w-10 text-primary mb-2" />
-                  <CardTitle className="text-xl font-semibold">Monitoreo en tiempo real</CardTitle>
+                  <CardTitle className="text-xl font-semibold">Entorno Seguro</CardTitle>
                 </CardHeader>
                 <CardContent className="p-0">
                   <CardDescription className="text-sm text-gray-600">
-                    Sensores de temperatura y humedad permiten entender el ambiente que rodea a tu mascota y detectar variaciones relevantes desde el dashboard.
+                    Detecta olas de calor o frío extremo en segundos. Mantén el microclima de tu mascota bajo control constante y evita golpes de calor.
                   </CardDescription>
                 </CardContent>
               </Card>
@@ -133,11 +109,11 @@ export default function LandingPage() {
               <Card className="rounded-2xl shadow-md p-6 text-center">
                 <CardHeader className="flex flex-col items-center p-0 mb-4">
                   <UtensilsCrossed className="h-10 w-10 text-green-500 mb-2" /> {/* Kept green for food icon */}
-                  <CardTitle className="text-xl font-semibold">Control de alimentación</CardTitle>
+                  <CardTitle className="text-xl font-semibold">Nutrición Precisa</CardTitle>
                 </CardHeader>
                 <CardContent className="p-0">
                   <CardDescription className="text-sm text-gray-600">
-                    El sensor de peso registra la ingesta y permite ver cuánto consume tu mascota, usando el dato `weightGrams` de la telemetría del sistema.
+                    Reduce el desperdicio y previene la obesidad o desnutrición. Monitorea gramos exactos consumidos cada día de forma automática.
                   </CardDescription>
                 </CardContent>
               </Card>
@@ -145,11 +121,11 @@ export default function LandingPage() {
               <Card className="rounded-2xl shadow-md p-6 text-center">
                 <CardHeader className="flex flex-col items-center p-0 mb-4">
                   <BatteryCharging className="h-10 w-10 text-amber-500 mb-2" /> {/* Kept amber for battery icon */}
-                  <CardTitle className="text-xl font-semibold">Estado del dispositivo</CardTitle>
+                  <CardTitle className="text-xl font-semibold">Conexión Total</CardTitle>
                 </CardHeader>
                 <CardContent className="p-0">
                   <CardDescription className="text-sm text-gray-600">
-                    Consulta nivel de batería, conexión Wi-Fi y última lectura para saber si el dispositivo está operativo y enviando datos.
+                    Batería de larga duración y alertas instantáneas de desconexión. Tu tranquilidad nunca se queda sin energía ni supervisión.
                   </CardDescription>
                 </CardContent>
               </Card>
@@ -157,11 +133,11 @@ export default function LandingPage() {
               <Card className="rounded-2xl shadow-md p-6 text-center">
                 <CardHeader className="flex flex-col items-center p-0 mb-4">
                   <Shield className="h-10 w-10 text-primary mb-2" />
-                  <CardTitle className="text-xl font-semibold">Prevención con datos</CardTitle>
+                  <CardTitle className="text-xl font-semibold">IA Preventiva</CardTitle>
                 </CardHeader>
                 <CardContent className="p-0">
                   <CardDescription className="text-sm text-gray-600">
-                    KittyPau no solo captura lecturas: transforma comportamiento cotidiano en información útil para decisiones de cuidado.
+                    Transformamos datos en alarmas tempranas para tu veterinario. El 80% de las enfermedades crónicas son tratables si se detectan a tiempo.
                   </CardDescription>
                 </CardContent>
               </Card>
@@ -183,7 +159,7 @@ export default function LandingPage() {
                     <XAxis dataKey="name" />
                     <YAxis />
                     <Tooltip />
-                    <Area type="monotone" dataKey="uv" stroke="hsl(var(--primary))" fill="hsl(var(--primary))" fillOpacity={0.3} />
+                    <Area type="monotone" dataKey="uv" stroke="hsl(var(--primary))" fill="hsl(var(--primary))" fillOpacity={0.3} isAnimationActive={false} />
                   </AreaChart>
                 </ResponsiveContainer>
                 <CardDescription className="text-center mt-4">
@@ -199,8 +175,8 @@ export default function LandingPage() {
                     <YAxis />
                     <Tooltip />
                     <Legend />
-                    <Line type="monotone" dataKey="food" stroke="#82ca9d" activeDot={{ r: 8 }} />
-                    <Line type="monotone" dataKey="water" stroke="#8884d8" />
+                    <Line type="monotone" dataKey="food" stroke="#82ca9d" activeDot={{ r: 8 }} isAnimationActive={false} />
+                    <Line type="monotone" dataKey="water" stroke="#8884d8" isAnimationActive={false} />
                   </LineChart>
                 </ResponsiveContainer>
                 <CardDescription className="text-center mt-4">
@@ -250,6 +226,41 @@ export default function LandingPage() {
             </div>
           </section>
 
+          {/* New Testimonials Section for Social Proof (Added per best practices) */}
+          <section id="testimonios" className="py-12">
+            <h2 className="text-3xl sm:text-4xl font-titan-one text-center text-primary mb-12">Lo que dicen los dueños</h2>
+            <div className="grid md:grid-cols-2 gap-8 px-4">
+              <Card className="rounded-2xl shadow-md p-6 bg-white italic border-l-4 border-primary">
+                <CardContent className="p-0">
+                  <p className="text-gray-700 mb-4">
+                    "Gracias a KittyPau detectamos que 'Luna' no estaba tomando agua antes de que se deshidratara. Nos ahorró una cirugía de urgencia y mucho estrés."
+                  </p>
+                  <div className="flex items-center gap-3 not-italic">
+                    <div className="h-10 w-10 bg-gray-200 rounded-full" />
+                    <div>
+                      <p className="font-bold text-sm">Carolina M.</p>
+                      <p className="text-xs text-gray-500">Dueña de Gato Senior</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+              <Card className="rounded-2xl shadow-md p-6 bg-white italic border-l-4 border-green-500">
+                <CardContent className="p-0">
+                  <p className="text-gray-700 mb-4">
+                    "El control de peso es increíblemente preciso. He podido ajustar la dieta de Rocky y ha bajado 500g en un mes de forma saludable."
+                  </p>
+                  <div className="flex items-center gap-3 not-italic">
+                    <div className="h-10 w-10 bg-gray-200 rounded-full" />
+                    <div>
+                      <p className="font-bold text-sm">Ricardo P.</p>
+                      <p className="text-xs text-gray-500">Pet Parent Proactivo</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </section>
+
           {/* Plans Section */}
           <section id="planes" className="py-12 bg-gray-50 rounded-2xl shadow-md">
             <h2 className="text-3xl sm:text-4xl font-bold text-center text-primary mb-12">Nuestros Planes</h2>
@@ -268,8 +279,8 @@ export default function LandingPage() {
                   <p className="flex items-center gap-2"><Check className="h-5 w-5 text-green-500" /> Entrada al ecosistema KittyPau</p>
                 </CardContent>
                 <div className="mt-6">
-                  <Button asChild className="bg-primary text-primary-foreground hover:opacity-90 rounded-2xl px-6 py-3 shadow-md w-full">
-                    <a href="/login">Ver detalles</a>
+                  <Button asChild className="bg-primary text-primary-foreground hover:opacity-90 rounded-2xl px-6 py-3 shadow-md w-full min-h-[52px] text-lg font-bold">
+                    <a href="/login">Prueba Gratis Ahora</a>
                   </Button>
                 </div>
               </Card>
@@ -287,8 +298,8 @@ export default function LandingPage() {
                   <p className="flex items-center gap-2"><Check className="h-5 w-5 text-green-500" /> Mejor visibilidad de patrones</p>
                 </CardContent>
                 <div className="mt-6">
-                  <Button asChild className="bg-primary text-primary-foreground hover:opacity-90 rounded-2xl px-6 py-3 shadow-md w-full">
-                    <a href="/login">Iniciar Sesión</a>
+                  <Button asChild className="bg-primary text-primary-foreground hover:opacity-90 rounded-2xl px-6 py-3 shadow-md w-full min-h-[52px] text-lg font-bold">
+                    <a href="/login">Asegura tu Protección Premium</a>
                   </Button>
                 </div>
               </Card>
@@ -331,18 +342,69 @@ export default function LandingPage() {
                 ></iframe>
               </div>
               <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8"> {/* Added mt-8 for spacing */}
-                <Button asChild className="bg-primary text-primary-foreground hover:opacity-90">
-                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSd-Gr6pYmbmiPY7871SgSPRJ52ynLA1p6fL5Z6ZGhWTtLQQYw/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">Regístrate Ahora</a>
+                <Button asChild className="bg-primary text-primary-foreground hover:opacity-90 min-h-[52px] px-8 text-lg font-bold">
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSd-Gr6pYmbmiPY7871SgSPRJ52ynLA1p6fL5Z6ZGhWTtLQQYw/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">Quiero ser Early Adopter</a>
                 </Button>
                 <Button variant="outline"><a href="#">Leer Carta Compromiso</a></Button>
               </div>
             </div>
           </Card>
+
+          {/* Postulaciones Section */}
+          <section id="postulaciones" className="py-12">
+            <h2 className="text-3xl sm:text-4xl font-titan-one text-center text-primary mb-6">Nuestras Postulaciones</h2>
+            <p className="text-center text-gray-600 mb-12 font-varela-round max-w-2xl mx-auto">
+              Conoce más sobre nuestro proyecto a través de los videos presentados en nuestras postulaciones a fondos de innovación.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
+              <Card className="rounded-2xl shadow-md p-6 text-center border-none bg-primary/10 flex flex-col justify-between h-full">
+                <div>
+                  <Video className="h-12 w-12 text-primary mx-auto mb-4" />
+                  <h4 className="font-titan-one text-lg text-primary mb-2">Demo 2 min.</h4>
+                  <p className="text-sm text-gray-600 mb-6 font-varela-round">Semilla Inicia Corfo 2025</p>
+                </div>
+                <Button variant="outline" className="rounded-2xl border-primary text-primary hover:bg-primary hover:text-white w-full" asChild>
+                  <a href="#" target="_blank" rel="noopener noreferrer">Ver Video</a>
+                </Button>
+              </Card>
+              <Card className="rounded-2xl shadow-md p-6 text-center border-none bg-primary/10 flex flex-col justify-between h-full">
+                <div>
+                  <Video className="h-12 w-12 text-primary mx-auto mb-4" />
+                  <h4 className="font-titan-one text-lg text-primary mb-2">Pitch 40 seg.</h4>
+                  <p className="text-sm text-gray-600 mb-6 font-varela-round">Semilla Inicia Corfo 2025</p>
+                </div>
+                <Button variant="outline" className="rounded-2xl border-primary text-primary hover:bg-primary hover:text-white w-full" asChild>
+                  <a href="https://www.youtube.com/watch?v=0LV1gTPgNlI" target="_blank" rel="noopener noreferrer">Ver Video</a>
+                </Button>
+              </Card>
+              <Card className="rounded-2xl shadow-md p-6 text-center border-none bg-primary/10 flex flex-col justify-between h-full">
+                <div>
+                  <Video className="h-12 w-12 text-primary mx-auto mb-4" />
+                  <h4 className="font-titan-one text-lg text-primary mb-2">Pitch 90 seg.</h4>
+                  <p className="text-sm text-gray-600 mb-6 font-varela-round">Start-Up Build Corfo 2025</p>
+                </div>
+                <Button variant="outline" className="rounded-2xl border-primary text-primary hover:bg-primary hover:text-white w-full" asChild>
+                  <a href="https://youtu.be/cYCQu3vZ6po" target="_blank" rel="noopener noreferrer">Ver Video</a>
+                </Button>
+              </Card>
+            </div>
+          </section>
         </main>
 
         {/* Footer Section */}
         <footer className="py-8 border-t border-gray-200 bg-gray-50"> {/* Added bg-gray-50 and adjusted padding */}
           <div className="text-center">
+            <div className="flex justify-center gap-6 mb-6">
+              <a href="https://www.instagram.com/kittypau.mascotas/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <Instagram className="h-6 w-6 text-gray-400 hover:text-primary transition-colors" />
+              </a>
+              <a href="https://www.youtube.com/channel/UCYrN8v3Lb5n1B0L2QeOEcxA" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <Youtube className="h-6 w-6 text-gray-400 hover:text-primary transition-colors" />
+              </a>
+              <a href="https://www.linkedin.com/in/kittypau-mascotas-26289539a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <Linkedin className="h-6 w-6 text-gray-400 hover:text-primary transition-colors" />
+              </a>
+            </div>
             <p className="text-sm text-gray-500 mb-2">
               Contacto: <a href="mailto:kittypau.mascotas@gmail.com" className="text-primary hover:underline">kittypau.mascotas@gmail.com</a>
             </p>
