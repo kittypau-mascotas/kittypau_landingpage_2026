@@ -4,28 +4,41 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 200 15% 19%; /* HSL para #2A363B */
+    --primary: 12 62% 79%; /* Este es el rosado #EBB7AA en formato HSL */
+    --primary-foreground: 0 0% 100%;
+    /* Define otros colores personalizados como variables CSS */
+    --accent-red: 3 100% 74%; /* HSL para #FF847C */
+    --accent-green: 142 71% 45%; /* HSL para #22C55E (Verde sólido como los checks) */
+    --warning: 30 92% 83%; /* HSL para #FECEAB */
+    --error: 353 74% 59%; /* HSL para #E84A5F */
+  }
+
   body {
     @apply font-sans antialiased bg-background text-foreground overflow-y-scroll;
-    font-family: 'Varela Round', sans-serif;
-    color: #2A363B;
+    /* font-family: 'Varela Round', sans-serif; */ /* Puede ser redundante si font-sans está configurado en tailwind.config.js */
+    /* color: #2A363B; */ /* Ahora manejado por text-foreground */
   }
 
   h1, h2, h3, .app-title {
     font-family: 'Titan One', sans-serif;
-    color: #EBB7AA;
+    color: hsl(var(--foreground));
   }
+}
+
+@layer components {
   
   .titulo {
     font-size: 40px;
     font-weight: bold;
-    color: #EBB7AA;
-    font-family: "Titan One", sans-serif;
-    font-style: normal;
+    color: hsl(var(--foreground));
   }
   
   .nav-item {
     font-size: 20px;
-    color: #2A363B;
+    color: hsl(var(--foreground));
   }
 
   .navbar {
@@ -33,74 +46,60 @@
   }
 
   .card-data {
-    @apply bg-[#FF847C] text-[#2A363B] rounded-lg shadow-md;
+    @apply bg-[hsl(var(--accent-red))] text-[hsl(var(--foreground))] rounded-lg shadow-md;
   }
 
   .card-device {
-    @apply bg-[#EBB7AA] text-[#2A363B] rounded-lg shadow-md;
+    @apply bg-[hsl(var(--primary))] text-[hsl(var(--foreground))] rounded-lg shadow-md;
   }
 
   .card-info {
-    @apply bg-[#99B898] text-[#2A363B] rounded-lg shadow-md;
+    @apply bg-[hsl(var(--accent-green))] text-[hsl(var(--foreground))] rounded-lg shadow-md;
   }
 
   .btn-primary {
-    @apply bg-[#FF847C] hover:bg-[#ff6b61] text-white rounded-md;
+    @apply bg-[hsl(var(--accent-red))] hover:bg-[#ff6b61] text-white rounded-md;
   }
 
   .btn-secondary {
-    @apply bg-[#EBB7AA] hover:bg-[#e9a08d] text-white rounded-md;
+    @apply bg-[hsl(var(--primary))] hover:bg-[#e9a08d] text-white rounded-md;
   }
 
   /* Status indicators */
   .status-active {
-    @apply bg-[#99B898];
+    @apply bg-[hsl(var(--accent-green))];
   }
 
   .status-warning {
-    @apply bg-[#FECEAB];
+    @apply bg-[hsl(var(--warning))];
   }
 
   .status-error {
-    @apply bg-[#E84A5F];
+    @apply bg-[hsl(var(--error))];
   }
   
   /* Content sections */
   .content-prototipo {
-    background-color: #EBB7AA;
-    color: #2A363B;
+    background-color: hsl(var(--primary));
+    color: hsl(var(--foreground));
     margin-bottom: 30px;
     border-radius: 8px;
     padding: 40px 20px;
   }
   
   .content-data {
-    background-color: #FF847C;
-    color: #2A363B;
+    background-color: hsl(var(--accent-red));
+    color: hsl(var(--foreground));
     margin-bottom: 30px;
     border-radius: 8px;
     padding: 40px 20px;
   }
   
   .content-contacto {
-    background-color: #99B898;
-    color: #2A363B;
+    background-color: hsl(var(--accent-green));
+    color: hsl(var(--foreground));
     margin-bottom: 30px;
     border-radius: 8px;
     padding: 40px 20px;
-  }
-  
-  /* Columns layout */
-  .columns {
-    display: flex;
-  }
-  
-  .column {
-    flex: 1;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
   }
 }
