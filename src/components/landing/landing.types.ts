@@ -17,6 +17,10 @@ export type PlanFeature = {
 };
 
 export type CarouselImageItem = string;
+export type CarouselImageConfig = {
+  src: string;
+  rotateDeg?: number;
+};
 
 export type TestimonialItem = {
   quote: string;
@@ -31,3 +35,20 @@ export type VideoCardItem = {
   href: string;
 };
 
+export type HeroData = {
+  title: string;
+  primaryCta: string;
+  secondaryCta: string;
+  benefits: string[];
+};
+
+export type NavItem = {
+  label: string;
+  href: string;
+};
+
+export type SocialLink = {
+  label: string;
+  href: string;
+  platform: 'instagram' | 'youtube' | 'linkedin';
+};

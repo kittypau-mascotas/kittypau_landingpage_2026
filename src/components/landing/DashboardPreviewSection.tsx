@@ -1,18 +1,99 @@
-import {
-  Area,
-  AreaChart,
-  CartesianGrid,
-  Legend,
-  Line,
-  LineChart,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
 import { SectionShell } from "./SectionShell";
 import { activityData, consumptionData } from "./landing.data";
+
+const activityBars = activityData.map((item) => item.uv / 100);
+const consumptionFood = consumptionData.map((item) => item.food);
+const consumptionWater = consumptionData.map((item) => item.water);
+
+function buildAreaPath(values: number[], width: number, height: number) {
+  if (!values.length) return "";
+
+  const max = Math.max(...values);
+  const step = values.length > 1 ? width / (values.length - 1) : width;
+
+  const points = values.map((value, index) => {
+    const x = index * step;
+    const y = height - (value / max) * height;
+    return `${x},${y}`;
+  });
+
+  return `M 0 ${height} L ${points.join(" L ")} L ${width} ${height} Z`;
+}
+
+function buildLinePath(values: number[], width: number, height: number) {
+  if (!values.length) return "";
+
+  const max = Math.max(...values);
+  const step = values.length > 1 ? width / (values.length - 1) : width;
+
+  return values
+    .map((value, index) => {
+      const x = index * step;
+      const y = height - (value / max) * height;
+      return `${index === 0 ? "M" : "L"} ${x} ${y}`;
+    })
+    .join(" ");
+}
+
+function MiniAreaChart({ values, stroke, fill }: { values: number[]; stroke: string; fill: string }) {
+  const width = 360;
+  const height = 180;
+  const path = buildAreaPath(values, width, height);
+
+  return (
+    <svg viewBox={`0 0 ${width} ${height}`} className="h-full w-full">
+      {[0.25, 0.5, 0.75].map((line) => (
+        <line
+          key={line}
+          x1="0"
+          x2={width}
+          y1={height * line}
+          y2={height * line}
+          stroke="rgba(148, 163, 184, 0.22)"
+          strokeDasharray="4 8"
+        />
+      ))}
+      <path d={path} fill={fill} />
+      <path d={path} fill="none" stroke={stroke} strokeWidth="3" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function MiniLineChart({
+  valuesA,
+  valuesB,
+  strokeA,
+  strokeB,
+}: {
+  valuesA: number[];
+  valuesB: number[];
+  strokeA: string;
+  strokeB: string;
+}) {
+  const width = 360;
+  const height = 180;
+  const pathA = buildLinePath(valuesA, width, height);
+  const pathB = buildLinePath(valuesB, width, height);
+
+  return (
+    <svg viewBox={`0 0 ${width} ${height}`} className="h-full w-full">
+      {[0.25, 0.5, 0.75].map((line) => (
+        <line
+          key={line}
+          x1="0"
+          x2={width}
+          y1={height * line}
+          y2={height * line}
+          stroke="rgba(148, 163, 184, 0.22)"
+          strokeDasharray="4 8"
+        />
+      ))}
+      <path d={pathA} fill="none" stroke={strokeA} strokeWidth="3" strokeLinecap="round" />
+      <path d={pathB} fill="none" stroke={strokeB} strokeWidth="3" strokeLinecap="round" />
+    </svg>
+  );
+}
 
 export function DashboardPreviewSection() {
   return (
@@ -26,53 +107,27 @@ export function DashboardPreviewSection() {
       <div className="grid gap-8 px-4 md:grid-cols-2">
         <Card className="rounded-2xl bg-white p-4 shadow-md">
           <CardTitle className="mb-4 text-lg font-semibold">Actividad Diaria</CardTitle>
-          <ResponsiveContainer width="100%" height={200}>
-            <AreaChart data={activityData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
-              <Area
-                type="monotone"
-                dataKey="uv"
-                stroke="hsl(var(--primary))"
-                fill="hsl(var(--primary))"
-                fillOpacity={0.3}
-                isAnimationActive={false}
-                strokeWidth={2}
-              />
-            </AreaChart>
-          </ResponsiveContainer>
+          <div className="h-[200px] w-full">
+            <MiniAreaChart
+              values={activityBars}
+              stroke="hsl(var(--primary))"
+              fill="rgba(235, 183, 170, 0.28)"
+            />
+          </div>
           <CardDescription className="mt-4 text-center">
             Monitoreo de actividad a lo largo de la semana.
           </CardDescription>
         </Card>
         <Card className="rounded-2xl bg-white p-4 shadow-md">
           <CardTitle className="mb-4 text-lg font-semibold">Consumo de Alimento y Agua</CardTitle>
-          <ResponsiveContainer width="100%" height={200}>
-            <LineChart data={consumptionData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
-              <Legend />
-              <Line
-                type="monotone"
-                dataKey="food"
-                stroke="hsl(var(--accent-green))"
-                activeDot={{ r: 8 }}
-                isAnimationActive={false}
-                strokeWidth={2}
-              />
-              <Line
-                type="monotone"
-                dataKey="water"
-                stroke="hsl(var(--accent-red))"
-                isAnimationActive={false}
-                strokeWidth={2}
-              />
-            </LineChart>
-          </ResponsiveContainer>
+          <div className="h-[200px] w-full">
+            <MiniLineChart
+              valuesA={consumptionFood}
+              valuesB={consumptionWater}
+              strokeA="hsl(var(--accent-green))"
+              strokeB="hsl(var(--accent-red))"
+            />
+          </div>
           <CardDescription className="mt-4 text-center">
             Registro de ingesta de alimento y agua por hora.
           </CardDescription>

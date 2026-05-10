@@ -1,9 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check, X } from "lucide-react";
-import { planFeatures } from "./landing.data";
-
-const loginUrl = "https://kittypau-app.vercel.app/login";
+import { planFeatures, loginUrl } from "./landing.data";
 
 export function PlansSection() {
   return (

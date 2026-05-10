@@ -51,7 +51,11 @@ export function FluidGradientBackground() {
       return;
     }
 
+    const media = window.matchMedia("(pointer: fine)");
+
     const handlePointerMove = (event: PointerEvent) => {
+      if (!media.matches) return;
+
       const x = (event.clientX / window.innerWidth) * 2 - 1;
       const y = (event.clientY / window.innerHeight) * 2 - 1;
       pointerX.set(x);
@@ -59,6 +63,7 @@ export function FluidGradientBackground() {
     };
 
     const handlePointerLeave = () => {
+      if (!media.matches) return;
       pointerX.set(0);
       pointerY.set(0);
     };
@@ -78,8 +83,10 @@ export function FluidGradientBackground() {
 
       <motion.div
         aria-hidden="true"
-        className="absolute -left-28 top-[-2rem] h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,rgba(255,119,165,0.7)_0%,rgba(255,119,165,0.3)_34%,rgba(255,119,165,0)_72%)] blur-3xl"
+        className="absolute -left-20 top-[-1rem] h-[14rem] w-[14rem] rounded-full blur-2xl sm:-left-20 sm:top-[-1.5rem] sm:h-[20rem] sm:w-[20rem] sm:blur-3xl md:-left-28 md:top-[-2rem] md:h-[30rem] md:w-[30rem]"
         style={{
+          background:
+            "radial-gradient(circle, hsl(var(--primary) / 0.68) 0%, hsl(var(--primary) / 0.26) 34%, hsl(var(--primary) / 0) 72%)",
           x: floatLeftX,
           y: floatLeftY,
         }}
@@ -103,7 +110,7 @@ export function FluidGradientBackground() {
 
       <motion.div
         aria-hidden="true"
-        className="absolute right-[-10rem] top-[-1rem] h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,rgba(122,239,179,0.68)_0%,rgba(122,239,179,0.26)_36%,rgba(122,239,179,0)_72%)] blur-3xl"
+        className="absolute right-[-5rem] top-[-1rem] h-[14rem] w-[14rem] rounded-full bg-[radial-gradient(circle,rgba(122,239,179,0.58)_0%,rgba(122,239,179,0.2)_36%,rgba(122,239,179,0)_72%)] blur-2xl sm:right-[-6rem] sm:top-[-1rem] sm:h-[22rem] sm:w-[22rem] sm:blur-3xl md:right-[-10rem] md:top-[-1rem] md:h-[34rem] md:w-[34rem]"
         style={{
           x: floatRightX,
           y: floatRightY,
@@ -128,7 +135,7 @@ export function FluidGradientBackground() {
 
       <motion.div
         aria-hidden="true"
-        className="absolute bottom-[-8rem] left-1/2 h-[28rem] w-[28rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,199,91,0.55)_0%,rgba(255,199,91,0.18)_36%,rgba(255,199,91,0)_72%)] blur-3xl"
+        className="absolute bottom-[-4rem] left-1/2 h-[12rem] w-[12rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,199,91,0.46)_0%,rgba(255,199,91,0.14)_36%,rgba(255,199,91,0)_72%)] blur-2xl sm:bottom-[-5rem] sm:h-[18rem] sm:w-[18rem] sm:blur-3xl md:bottom-[-8rem] md:h-[28rem] md:w-[28rem]"
         style={{
           x: floatBottomX,
           y: floatBottomY,
@@ -151,7 +158,7 @@ export function FluidGradientBackground() {
         }
       />
 
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.1)_0%,rgba(255,255,255,0.68)_62%,rgba(255,255,255,0.96)_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.12)_0%,rgba(255,255,255,0.8)_60%,rgba(255,255,255,0.98)_100%)]" />
     </div>
   );
 }

@@ -1,5 +1,17 @@
 import { BatteryCharging, Shield, Thermometer, UtensilsCrossed } from "lucide-react";
-import type { CarouselImageItem, LandingFeature, PlanFeature, TestimonialItem, VideoCardItem } from "./landing.types";
+import type {
+  CarouselImageConfig,
+  CarouselImageItem,
+  LandingFeature,
+  HeroData,
+  NavItem,
+  SocialLink,
+  PlanFeature,
+  TestimonialItem,
+  VideoCardItem,
+} from "./landing.types";
+
+export const loginUrl = "https://kittypau-app.vercel.app/login";
 
 export const activityData = [
   { name: "Lun", uv: 4000, pv: 2400, amt: 2400 },
@@ -19,21 +31,21 @@ export const consumptionData = [
   { name: "23:59", food: 80, water: 180 },
 ];
 
-export const carouselImages: CarouselImageItem[] = [
-  "/carousel-images/1.jpg",
-  "/carousel-images/2.jpg",
-  "/carousel-images/3.png",
-  "/carousel-images/4.jpg",
-  "/carousel-images/5.jpg",
-  "/carousel-images/6.jpg",
-  "/carousel-images/7.jpg",
-  "/carousel-images/8.jpg",
-  "/prototipo/proto1.jpg",
-  "/prototipo/proto2.jpg",
-  "/prototipo/proto3.jpg",
-  "/prototipo/proto4.jpg",
-  "/prototipo/proto5.jpg",
-  "/prototipo/proto6.jpg",
+export const carouselImages: CarouselImageConfig[] = [
+  { src: "/prototipo/proto1.jpg", rotateDeg: -90 },
+  { src: "/prototipo/proto2.jpg", rotateDeg: 90 },
+  { src: "/prototipo/proto3.jpg" },
+  { src: "/prototipo/proto4.jpg" },
+  { src: "/prototipo/proto5.jpg" },
+  { src: "/prototipo/proto6.jpg" },
+  { src: "/carousel-images/1.jpg" },
+  { src: "/carousel-images/2.jpg" },
+  { src: "/carousel-images/3.png" },
+  { src: "/carousel-images/4.jpg" },
+  { src: "/carousel-images/5.jpg" },
+  { src: "/carousel-images/6.jpg" },
+  { src: "/carousel-images/7.jpg" },
+  { src: "/carousel-images/8.jpg" },
 ];
 
 export const planFeatures: PlanFeature[] = [
@@ -140,3 +152,37 @@ export const postulationVideos: VideoCardItem[] = [
   },
 ];
 
+export const heroData: HeroData = {
+  title: "Descubre lo que tu mascota intenta decirte!",
+  primaryCta: "Empieza a cuidar gratis",
+  secondaryCta: "Ver Planes",
+  benefits: [
+    "Evidencia visual de salud diaria",
+    "Instalación en menos de 5 minutos",
+    "Garantía de tranquilidad absoluta",
+  ],
+};
+
+export const navItems: NavItem[] = [
+  { label: "Caracteristicas", href: "#caracteristicas" },
+  { label: "Como funciona", href: "#como-funciona" },
+  { label: "Planes", href: "#planes" },
+];
+
+export const socialLinks: SocialLink[] = [
+  { 
+    label: "Instagram", 
+    href: "https://www.instagram.com/kittypau.mascotas/", 
+    platform: 'instagram' 
+  },
+  { 
+    label: "YouTube", 
+    href: "https://www.youtube.com/channel/UCYrN8v3Lb5n1B0L2QeOEcxA", 
+    platform: 'youtube' 
+  },
+  { 
+    label: "LinkedIn", 
+    href: "https://www.linkedin.com/in/kittypau-mascotas-26289539a/", 
+    platform: 'linkedin' 
+  },
+];
