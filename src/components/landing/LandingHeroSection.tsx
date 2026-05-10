@@ -46,7 +46,9 @@ export function LandingHeroSection() {
           <h1 className="text-4xl leading-tight font-titan-one text-foreground sm:text-5xl md:text-[40px]">
             {heroData.title}
           </h1>
-          {/* El logo y la bajada se han movido exclusivamente al Navbar sticky */}
+          <p className="text-base text-gray-600 sm:text-lg leading-relaxed max-w-xl mx-auto md:mx-0">
+            {heroData.description}
+          </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row md:justify-start">
             <Button
               asChild

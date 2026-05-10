@@ -64,40 +64,36 @@ export const planFeatures: PlanFeature[] = [
 
 export const featuresData: LandingFeature[] = [
   {
-    title: "Entorno Seguro",
-    description: "Detecta olas de calor o frío extremo en segundos. Mantén el microclima de tu mascota bajo control constante.",
+    title: "Entorno seguro",
+    description: "Detecta cambios de temperatura y humedad para que sepas si el entorno donde está tu mascota sigue siendo seguro y estable.",
     icon: Thermometer,
     hueA: 12,
     hueB: 30,
-    eyebrow: "Clima",
-    metric: "Alertas instantáneas",
+    subtitle: "Monitorea el entorno · Temperatura y Humedad",
   },
   {
-    title: "Nutrición Precisa",
-    description: "Reduce el desperdicio y previene la obesidad. Monitorea gramos exactos consumidos cada día de forma automática.",
+    title: "Nutricion precisa",
+    description: "Registra comida y agua para entender consumo, detectar bajas o excesos y tomar decisiones mas precisas sobre su alimentacion.",
     icon: UtensilsCrossed,
     hueA: 142,
     hueB: 118,
-    eyebrow: "Alimentación",
-    metric: "Control por porción",
+    subtitle: "Registra comida y agua · Peso y Gramos",
   },
   {
-    title: "Conexión Total",
-    description: "Batería de larga duración y alertas instantáneas de desconexión. Tu tranquilidad nunca se queda sin energía.",
+    title: "Conexion total",
+    description: "Vigila bateria, Wi-Fi y ultima lectura para saber si el dispositivo sigue activo y enviando datos sin interrupciones.",
     icon: BatteryCharging,
     hueA: 30,
     hueB: 12,
-    eyebrow: "Conectividad",
-    metric: "Estado en vivo",
+    subtitle: "Vigila el dispositivo · Batería y WiFi",
   },
   {
-    title: "IA Preventiva",
-    description: "Transformamos datos en alarmas tempranas. El 80% de enfermedades son tratables si se detectan a tiempo.",
+    title: "IA preventiva",
+    description: "Resume patrones y cambios de habito para activar alertas tempranas antes de que una variacion se convierta en un problema.",
     icon: Shield,
     hueA: 353,
     hueB: 12,
-    eyebrow: "Predicción",
-    metric: "Señales antes del problema",
+    subtitle: "Activa prevencion · Alertas preventivas",
   },
 ];
 
@@ -153,13 +149,14 @@ export const postulationVideos: VideoCardItem[] = [
 ];
 
 export const heroData: HeroData = {
-  title: "Descubre lo que tu mascota intenta decirte!",
+  title: "Descubre lo que tu mascota necesita antes de que se note en su salud.",
+  description: "KittyPau convierte alimentacion, hidratacion, entorno y estado del dispositivo en datos claros, historiales utiles y alertas que ayudan a actuar a tiempo.",
   primaryCta: "Empieza a cuidar gratis",
   secondaryCta: "Ver Planes",
   benefits: [
     "Evidencia visual de salud diaria",
-    "Instalación en menos de 5 minutos",
-    "Garantía de tranquilidad absoluta",
+    "Instalacion guiada en minutos",
+    "Alertas preventivas y historial",
   ],
 };
 

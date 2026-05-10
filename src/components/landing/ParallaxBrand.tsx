@@ -35,17 +35,17 @@ export function ParallaxBrand() {
 
         <div className="text-center">
           <motion.h2
-            style={{ y: yBrand, opacity }}
-            className="text-6xl md:text-7xl font-titan-one text-primary leading-none select-none"
+            style={{ y: yBrand, opacity, fontFamily: '"Titan One", sans-serif' }}
+            className="text-6xl md:text-7xl text-primary leading-none select-none"
           >
             KittyPau
           </motion.h2>
-          <motion.p
-            style={{ y: yTagline, opacity }}
-            className="mt-4 font-titan-one font-bold text-xl md:text-2xl text-gray-600 tracking-[0.25em] select-none"
+          <motion.h3
+            style={{ y: yTagline, opacity, fontFamily: '"Titan One", sans-serif' }}
+            className="mt-4 text-xl md:text-2xl text-gray-600 tracking-[0.25em] select-none"
           >
             PetTech AIoT
-          </motion.p>
+          </motion.h3>
         </div>
       </div>
 
@@ -53,11 +53,16 @@ export function ParallaxBrand() {
       <motion.div
         style={{ 
           y: useTransform(scrollYProgress, [0, 1], [150, -150]),
-          opacity: useTransform(scrollYProgress, [0, 0.5, 1], [0, 0.05, 0])
+          opacity: useTransform(scrollYProgress, [0, 0.5, 1], [0, 0.1, 0])
         }}
         className="absolute inset-0 flex items-center justify-center -z-0 pointer-events-none select-none"
       >
-        <span className="text-[25rem] font-titan-one text-primary">KP</span>
+        <span 
+          className="text-[12rem] text-primary"
+          style={{ fontFamily: '"Titan One", sans-serif' }}
+        >
+          KittyPau
+        </span>
       </motion.div>
     </div>
   );

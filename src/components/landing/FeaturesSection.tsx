@@ -13,9 +13,8 @@ export function FeaturesSection() {
       </div>
 
       <SectionHeading
-        eyebrow="Que hace KittyPau"
-        title="Caracteristicas que se sienten claras, utiles y confiables"
-        description="Cada modulo de KittyPau convierte señales cotidianas en decisiones accionables para cuidar mejor a tu mascota, sin ruido visual ni complejidad innecesaria."
+        title="Que hace KittyPau"
+        description="KittyPau convierte la rutina de tu mascota en informacion util para cuidar mejor: mide, registra y resume lo que pasa en su dia a dia."
       />
 
       <div className="mt-12 grid gap-6 md:grid-cols-2 xl:gap-8">

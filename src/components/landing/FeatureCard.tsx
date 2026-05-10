@@ -31,8 +31,7 @@ export function FeatureCard({
   title,
   description,
   icon: Icon,
-  eyebrow,
-  metric,
+  subtitle,
   hueA,
   hueB,
   index,
@@ -63,16 +62,11 @@ export function FeatureCard({
             <Icon className="h-8 w-8 text-primary" />
           </div>
           <div className="min-w-0">
-            <div className="mb-4 flex flex-wrap items-center gap-2">
-              <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.24em] text-primary">
-                {eyebrow}
-              </span>
-              <span className="inline-flex items-center rounded-full bg-foreground/5 px-3 py-1 text-[11px] font-semibold text-foreground/70">
-                {metric}
-              </span>
-            </div>
-            <h3 className="mb-3 text-2xl font-bold tracking-tight text-foreground">{title}</h3>
-            <p className="max-w-md leading-relaxed text-gray-700">{description}</p>
+            <h3 className="text-2xl font-bold tracking-tight text-foreground">{title}</h3>
+            <p className="mt-1 text-[11px] font-bold uppercase tracking-[0.15em] text-primary/80">
+              {subtitle}
+            </p>
+            <p className="mt-4 max-w-md leading-relaxed text-gray-700">{description}</p>
           </div>
         </div>
       </motion.div>

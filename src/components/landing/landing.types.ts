@@ -6,8 +6,7 @@ export type LandingFeature = {
   icon: LucideIcon;
   hueA: number;
   hueB: number;
-  eyebrow: string;
-  metric: string;
+  subtitle: string;
 };
 
 export type PlanFeature = {
@@ -37,6 +36,7 @@ export type VideoCardItem = {
 
 export type HeroData = {
   title: string;
+  description: string;
   primaryCta: string;
   secondaryCta: string;
   benefits: string[];
