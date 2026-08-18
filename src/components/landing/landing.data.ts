@@ -141,6 +141,20 @@ export const curveExamplesData: CurveExampleItem[] = [
     ],
     colorVar: "--accent-red",
   },
+  {
+    emoji: "🟡",
+    title: "Ciclo Servido → Alimentación",
+    attribution: "Segmento real, KPCL0034 · 15 jun 2026",
+    description: "El ciclo completo que el sistema arma automaticamente: primero un servido (el peso sube al llenar el plato) y despues una o mas alimentaciones (el peso baja mientras el gato come). Es la unidad que resume un evento de comida de principio a fin.",
+    points: [
+      { t: "0:00", w: 143 }, { t: "0:29", w: 141 }, { t: "0:59", w: 141 }, { t: "1:30", w: 141 },
+      { t: "2:00", w: 153 }, { t: "2:30", w: 150 }, { t: "2:59", w: 150 }, { t: "3:29", w: 150 },
+      { t: "4:00", w: 147 }, { t: "4:29", w: 147 }, { t: "5:00", w: 144 }, { t: "5:29", w: 144 },
+      { t: "5:59", w: 148 }, { t: "6:29", w: 148 }, { t: "6:59", w: 137 }, { t: "7:29", w: 137 },
+      { t: "7:59", w: 128 }, { t: "8:29", w: 128 },
+    ],
+    colorVar: "--warning",
+  },
 ];
 
 export const howItWorksData = [
