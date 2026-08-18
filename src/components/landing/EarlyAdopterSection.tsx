@@ -39,7 +39,7 @@ export function EarlyAdopterSection() {
         <div className="mx-auto aspect-video w-full max-w-lg">
           <VideoEmbedCard
             src="https://www.youtube.com/embed/T3kVEl7CE7k"
-            title="YouTube video player"
+            title="KittyPau — Programa Early Adopter"
           />
         </div>
         <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
@@ -54,9 +54,6 @@ export function EarlyAdopterSection() {
             >
               Quiero ser Early Adopter
             </a>
-          </Button>
-          <Button variant="outline">
-            <a href="#">Leer Carta Compromiso</a>
           </Button>
         </div>
       </div>
