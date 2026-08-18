@@ -1,61 +1,27 @@
+import {
+  Area,
+  AreaChart,
+  CartesianGrid,
+  Legend,
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
 import { SectionShell } from "./SectionShell";
 import { activityData, consumptionData } from "./landing.data";
-import { MiniAreaChart } from "./MiniAreaChart";
 
-const activityBars = activityData.map((item) => item.uv / 100);
-const consumptionFood = consumptionData.map((item) => item.food);
-const consumptionWater = consumptionData.map((item) => item.water);
-
-function buildLinePath(values: number[], width: number, height: number) {
-  if (!values.length) return "";
-
-  const max = Math.max(...values);
-  const step = values.length > 1 ? width / (values.length - 1) : width;
-
-  return values
-    .map((value, index) => {
-      const x = index * step;
-      const y = height - (value / max) * height;
-      return `${index === 0 ? "M" : "L"} ${x} ${y}`;
-    })
-    .join(" ");
-}
-
-function MiniLineChart({
-  valuesA,
-  valuesB,
-  strokeA,
-  strokeB,
-}: {
-  valuesA: number[];
-  valuesB: number[];
-  strokeA: string;
-  strokeB: string;
-}) {
-  const width = 360;
-  const height = 180;
-  const pathA = buildLinePath(valuesA, width, height);
-  const pathB = buildLinePath(valuesB, width, height);
-
-  return (
-    <svg viewBox={`0 0 ${width} ${height}`} className="h-full w-full">
-      {[0.25, 0.5, 0.75].map((line) => (
-        <line
-          key={line}
-          x1="0"
-          x2={width}
-          y1={height * line}
-          y2={height * line}
-          stroke="rgba(148, 163, 184, 0.22)"
-          strokeDasharray="4 8"
-        />
-      ))}
-      <path d={pathA} fill="none" stroke={strokeA} strokeWidth="3" strokeLinecap="round" />
-      <path d={pathB} fill="none" stroke={strokeB} strokeWidth="3" strokeLinecap="round" />
-    </svg>
-  );
-}
+const tickStyle = { fontSize: 11, fill: "#9ca3af" };
+const gridStyle = { stroke: "rgba(148, 163, 184, 0.25)", strokeDasharray: "3 6" };
+const tooltipStyle = {
+  borderRadius: 12,
+  border: "1px solid rgba(148, 163, 184, 0.25)",
+  fontSize: 12,
+  boxShadow: "0 8px 24px rgba(15,23,42,0.10)",
+};
 
 export function DashboardPreviewSection() {
   return (
@@ -70,11 +36,30 @@ export function DashboardPreviewSection() {
         <Card className="rounded-2xl bg-white p-4 shadow-md">
           <CardTitle className="mb-4 text-lg font-semibold">Actividad Diaria</CardTitle>
           <div className="h-[200px] w-full">
-            <MiniAreaChart
-              values={activityBars}
-              stroke="hsl(var(--primary))"
-              fill="rgba(235, 183, 170, 0.28)"
-            />
+            <ResponsiveContainer width="100%" height="100%">
+              <AreaChart data={activityData} margin={{ top: 4, right: 12, left: 0, bottom: 0 }}>
+                <defs>
+                  <linearGradient id="activity-gradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.35} />
+                    <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0.02} />
+                  </linearGradient>
+                </defs>
+                <CartesianGrid {...gridStyle} vertical={false} />
+                <XAxis dataKey="name" tick={tickStyle} tickLine={false} axisLine={{ stroke: "rgba(148, 163, 184, 0.35)" }} />
+                <YAxis tick={tickStyle} tickLine={false} axisLine={false} width={44} />
+                <Tooltip contentStyle={tooltipStyle} />
+                <Area
+                  type="monotone"
+                  dataKey="uv"
+                  name="Actividad"
+                  stroke="hsl(var(--primary))"
+                  strokeWidth={2.5}
+                  fill="url(#activity-gradient)"
+                  dot={false}
+                  activeDot={{ r: 4, strokeWidth: 0 }}
+                />
+              </AreaChart>
+            </ResponsiveContainer>
           </div>
           <CardDescription className="mt-4 text-center">
             Monitoreo de actividad a lo largo de la semana.
@@ -83,12 +68,33 @@ export function DashboardPreviewSection() {
         <Card className="rounded-2xl bg-white p-4 shadow-md">
           <CardTitle className="mb-4 text-lg font-semibold">Consumo de Alimento y Agua</CardTitle>
           <div className="h-[200px] w-full">
-            <MiniLineChart
-              valuesA={consumptionFood}
-              valuesB={consumptionWater}
-              strokeA="hsl(var(--accent-green))"
-              strokeB="hsl(var(--accent-red))"
-            />
+            <ResponsiveContainer width="100%" height="100%">
+              <LineChart data={consumptionData} margin={{ top: 4, right: 12, left: 0, bottom: 0 }}>
+                <CartesianGrid {...gridStyle} vertical={false} />
+                <XAxis dataKey="name" tick={tickStyle} tickLine={false} axisLine={{ stroke: "rgba(148, 163, 184, 0.35)" }} />
+                <YAxis tick={tickStyle} tickLine={false} axisLine={false} width={44} />
+                <Tooltip contentStyle={tooltipStyle} />
+                <Legend wrapperStyle={{ fontSize: 11 }} iconType="circle" iconSize={8} />
+                <Line
+                  type="monotone"
+                  dataKey="food"
+                  name="Alimento (g)"
+                  stroke="hsl(var(--accent-green))"
+                  strokeWidth={2.5}
+                  dot={false}
+                  activeDot={{ r: 4 }}
+                />
+                <Line
+                  type="monotone"
+                  dataKey="water"
+                  name="Agua (ml)"
+                  stroke="hsl(var(--accent-red))"
+                  strokeWidth={2.5}
+                  dot={false}
+                  activeDot={{ r: 4 }}
+                />
+              </LineChart>
+            </ResponsiveContainer>
           </div>
           <CardDescription className="mt-4 text-center">
             Registro de ingesta de alimento y agua por hora.
