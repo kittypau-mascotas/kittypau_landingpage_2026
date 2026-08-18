@@ -6,7 +6,7 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 200 15% 19%; /* HSL para #2A363B */
+    --foreground: 215 14% 34%; /* HSL para #4B5563 (gray-600, mismo gris de "PetTech AIoT") */
     --primary: 12 62% 79%; /* Este es el rosado #EBB7AA en formato HSL */
     --primary-foreground: 0 0% 100%;
     /* Define otros colores personalizados como variables CSS */

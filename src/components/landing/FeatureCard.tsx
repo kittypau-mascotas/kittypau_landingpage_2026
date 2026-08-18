@@ -66,7 +66,7 @@ export function FeatureCard({
             <p className="mt-1 text-[11px] font-bold uppercase tracking-[0.15em] text-primary/80">
               {subtitle}
             </p>
-            <p className="mt-4 max-w-md leading-relaxed text-gray-700">{description}</p>
+            <p className="mt-4 max-w-md leading-relaxed text-gray-600">{description}</p>
           </div>
         </div>
       </motion.div>
