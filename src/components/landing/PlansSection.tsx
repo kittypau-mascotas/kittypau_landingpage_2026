@@ -84,7 +84,7 @@ export function PlansSection() {
         <table className="w-full border-collapse text-sm">
           <thead>
             <tr className="bg-primary/10">
-              <th className="rounded-tl-xl p-3 text-left font-semibold text-gray-700">
+              <th className="rounded-tl-xl p-3 text-left font-semibold text-gray-600">
                 Funcionalidad
               </th>
               <th className="w-28 p-3 text-center font-semibold text-gray-600">Gratuito</th>
@@ -96,7 +96,7 @@ export function PlansSection() {
           <tbody className="divide-y divide-gray-100">
             {planFeatures.map((item) => (
               <tr key={item.feature} className="transition-colors hover:bg-gray-50/50">
-                <td className="p-3 font-medium text-gray-700">{item.feature}</td>
+                <td className="p-3 font-medium text-gray-600">{item.feature}</td>
                 <td className="p-3 text-center">
                   {item.free ? (
                     <Check className="mx-auto h-4 w-4 text-green-500" />
