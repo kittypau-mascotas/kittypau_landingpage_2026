@@ -21,11 +21,14 @@ export type CarouselImageConfig = {
   rotateDeg?: number;
 };
 
-export type TestimonialItem = {
-  quote: string;
-  name: string;
-  role: string;
-  borderClassName: string;
+export type CurveExampleItem = {
+  emoji: string;
+  title: string;
+  attribution: string;
+  description: string;
+  points: number[];
+  strokeVar: string;
+  fillVar: string;
 };
 
 export type VideoCardItem = {
