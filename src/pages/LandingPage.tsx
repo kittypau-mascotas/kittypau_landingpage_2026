@@ -6,16 +6,18 @@ import { FeaturesSection } from "@/components/landing/FeaturesSection";
 import { FlowSection } from "@/components/landing/FlowSection";
 import { DashboardPreviewSection } from "@/components/landing/DashboardPreviewSection";
 import { HowItWorksSection } from "@/components/landing/HowItWorksSection";
-import { TestimonialsSection } from "@/components/landing/TestimonialsSection";
+import { CurveExamplesSection } from "@/components/landing/CurveExamplesSection";
 import { PlansSection } from "@/components/landing/PlansSection";
 import { EarlyAdopterSection } from "@/components/landing/EarlyAdopterSection";
 import { PostulacionesSection } from "@/components/landing/PostulacionesSection";
 import { LandingFooter } from "@/components/landing/LandingFooter";
+import { FloatingVideoWidget } from "@/components/landing/FloatingVideoWidget";
 
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-white">
       <LandingNavbar />
+      <FloatingVideoWidget />
 
       <div className="mx-auto max-w-5xl px-4">
         <LandingHeroSection />
@@ -24,10 +26,10 @@ export default function LandingPage() {
 
         <main className="mt-16 space-y-16 pb-8">
           <FeaturesSection />
+          <CurveExamplesSection />
           <FlowSection />
           <DashboardPreviewSection />
           <HowItWorksSection />
-          <TestimonialsSection />
           <PlansSection />
           <EarlyAdopterSection />
           <PostulacionesSection />

@@ -2,16 +2,18 @@ import { BatteryCharging, Shield, Thermometer, UtensilsCrossed } from "lucide-re
 import type {
   CarouselImageConfig,
   CarouselImageItem,
+  CurveExampleItem,
   LandingFeature,
   HeroData,
   NavItem,
   SocialLink,
   PlanFeature,
-  TestimonialItem,
   VideoCardItem,
 } from "./landing.types";
 
 export const loginUrl = "https://kittypau-app.vercel.app/login";
+
+export const featuredVideoId = "5BM2d6lbOYA";
 
 export const activityData = [
   { name: "Lun", uv: 4000, pv: 2400, amt: 2400 },
@@ -72,7 +74,7 @@ export const featuresData: LandingFeature[] = [
     subtitle: "Monitorea el entorno · Temperatura y Humedad",
   },
   {
-    title: "Nutricion precisa",
+    title: "Nutrición precisa",
     description: "Registra comida y agua para entender consumo, detectar bajas o excesos y tomar decisiones mas precisas sobre su alimentacion.",
     icon: UtensilsCrossed,
     hueA: 142,
@@ -88,34 +90,49 @@ export const featuresData: LandingFeature[] = [
     subtitle: "Vigila el dispositivo · Batería y WiFi",
   },
   {
-    title: "IA preventiva",
-    description: "Resume patrones y cambios de habito para activar alertas tempranas antes de que una variacion se convierta en un problema.",
+    title: "Alertas preventivas",
+    description: "Hoy avisa cuando el plato lleva demasiado tiempo bajo (hunger bar). Detrás corre el mismo motor que aprende el patron de cada mascota, camino a alertas cada vez mas anticipadas.",
     icon: Shield,
     hueA: 353,
     hueB: 12,
-    subtitle: "Activa prevencion · Alertas preventivas",
+    subtitle: "Activa prevencion · Alertas del hunger bar",
   },
 ];
 
-export const testimonialsData: TestimonialItem[] = [
+export const curveExamplesData: CurveExampleItem[] = [
   {
-    quote: "Gracias a KittyPau detectamos que 'Luna' no estaba tomando agua antes de que se deshidratara. Nos ahorró una cirugía de urgencia y mucho estrés.",
-    name: "Carolina M.",
-    role: "Dueña de Gato Senior",
-    borderClassName: "border-primary",
+    emoji: "🍽️",
+    title: "Alimentación",
+    attribution: "Segmento real, KPCL0034 · 6 jun 2026",
+    description: "El peso baja en escalones mientras el gato come: cada bocado resta unos gramos del plato. Esa bajada gradual y sostenida es la forma que el motor matematico usa para reconocer un evento real de alimentacion.",
+    points: [138, 138, 138, 138, 135, 133, 137, 129, 136, 127, 123, 125, 125, 125, 129, 123, 123, 123],
+    strokeVar: "--accent-green",
+    fillVar: "--accent-green",
   },
   {
-    quote: "El control de peso es increíblemente preciso. He podido ajustar la dieta de Rocky y ha bajado 500g en un mes de forma saludable.",
-    name: "Ricardo P.",
-    role: "Pet Parent Proactivo",
-    borderClassName: "border-green-500",
+    emoji: "🫙",
+    title: "Servido",
+    attribution: "Segmento real, KPCL0034 · 24 jun 2026",
+    description: "El peso sube de golpe cuando se agrega alimento al plato: un salto unico y sostenido, sin bocados despues. El motor distingue esto de \"alimentacion\" por la subida abrupta en vez de una bajada gradual.",
+    points: [114, 114, 114, 114, 114, 175, 175, 175],
+    strokeVar: "--primary",
+    fillVar: "--primary",
+  },
+  {
+    emoji: "⚡",
+    title: "Ruido",
+    attribution: "Segmento real, KPCL0034 · 11 jul 2026",
+    description: "Un pico aislado sin causa real -vibracion o interferencia del sensor- que vuelve enseguida a la linea base, sin la tendencia sostenida que si muestran alimentacion y servido.",
+    points: [90, 90, 90, 90, 104, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86],
+    strokeVar: "--accent-red",
+    fillVar: "--accent-red",
   },
 ];
 
 export const howItWorksData = [
   {
     title: "1. Conecta",
-    description: "Configura tu dispositivo ESP32 y prepáralo para capturar datos de tu mascota.",
+    description: "Configura tu dispositivo KittyPau y prepáralo para capturar datos de tu mascota.",
     iconName: "Plug",
   },
   {
@@ -133,8 +150,8 @@ export const howItWorksData = [
 export const postulationVideos: VideoCardItem[] = [
   {
     title: "Demo 2 min.",
-    subtitle: "Semilla Inicia Corfo 2025",
-    href: "#",
+    subtitle: "Semilla Inicia Corfo 2026",
+    href: "https://www.youtube.com/watch?v=5BM2d6lbOYA",
   },
   {
     title: "Pitch 40 seg.",

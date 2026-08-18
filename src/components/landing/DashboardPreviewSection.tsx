@@ -1,25 +1,11 @@
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
 import { SectionShell } from "./SectionShell";
 import { activityData, consumptionData } from "./landing.data";
+import { MiniAreaChart } from "./MiniAreaChart";
 
 const activityBars = activityData.map((item) => item.uv / 100);
 const consumptionFood = consumptionData.map((item) => item.food);
 const consumptionWater = consumptionData.map((item) => item.water);
-
-function buildAreaPath(values: number[], width: number, height: number) {
-  if (!values.length) return "";
-
-  const max = Math.max(...values);
-  const step = values.length > 1 ? width / (values.length - 1) : width;
-
-  const points = values.map((value, index) => {
-    const x = index * step;
-    const y = height - (value / max) * height;
-    return `${x},${y}`;
-  });
-
-  return `M 0 ${height} L ${points.join(" L ")} L ${width} ${height} Z`;
-}
 
 function buildLinePath(values: number[], width: number, height: number) {
   if (!values.length) return "";
@@ -34,30 +20,6 @@ function buildLinePath(values: number[], width: number, height: number) {
       return `${index === 0 ? "M" : "L"} ${x} ${y}`;
     })
     .join(" ");
-}
-
-function MiniAreaChart({ values, stroke, fill }: { values: number[]; stroke: string; fill: string }) {
-  const width = 360;
-  const height = 180;
-  const path = buildAreaPath(values, width, height);
-
-  return (
-    <svg viewBox={`0 0 ${width} ${height}`} className="h-full w-full">
-      {[0.25, 0.5, 0.75].map((line) => (
-        <line
-          key={line}
-          x1="0"
-          x2={width}
-          y1={height * line}
-          y2={height * line}
-          stroke="rgba(148, 163, 184, 0.22)"
-          strokeDasharray="4 8"
-        />
-      ))}
-      <path d={path} fill={fill} />
-      <path d={path} fill="none" stroke={stroke} strokeWidth="3" strokeLinecap="round" />
-    </svg>
-  );
 }
 
 function MiniLineChart({
