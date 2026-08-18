@@ -2,6 +2,7 @@ import {
   Area,
   AreaChart,
   CartesianGrid,
+  ReferenceArea,
   ResponsiveContainer,
   Tooltip,
   XAxis,
@@ -12,6 +13,12 @@ import { SectionHeading } from "./SectionHeading";
 import { SectionShell } from "./SectionShell";
 import { curveExamplesData } from "./landing.data";
 import type { CurveExampleItem } from "./landing.types";
+
+function formatMmSs(seconds: number) {
+  const mm = Math.floor(seconds / 60);
+  const ss = Math.round(seconds % 60);
+  return `${mm}:${ss.toString().padStart(2, "0")}`;
+}
 
 function CurveChart({ curve, height = 160 }: { curve: CurveExampleItem; height?: number }) {
   const color = `hsl(var(${curve.colorVar}))`;
@@ -27,12 +34,25 @@ function CurveChart({ curve, height = 160 }: { curve: CurveExampleItem; height?:
           </linearGradient>
         </defs>
         <CartesianGrid strokeDasharray="3 6" stroke="rgba(148, 163, 184, 0.25)" vertical={false} />
+        {curve.bands?.map((band) => (
+          <ReferenceArea
+            key={band.label}
+            x1={band.from}
+            x2={band.to}
+            fill={band.color}
+            fillOpacity={0.16}
+            stroke={band.color}
+            strokeOpacity={0.3}
+          />
+        ))}
         <XAxis
           dataKey="t"
+          type="number"
+          domain={["dataMin", "dataMax"]}
+          tickFormatter={formatMmSs}
           tick={{ fontSize: 10, fill: "#9ca3af" }}
           tickLine={false}
           axisLine={{ stroke: "rgba(148, 163, 184, 0.35)" }}
-          interval="preserveStartEnd"
           minTickGap={24}
         />
         <YAxis
@@ -45,7 +65,7 @@ function CurveChart({ curve, height = 160 }: { curve: CurveExampleItem; height?:
         />
         <Tooltip
           formatter={(value: number) => [`${value} g`, "Peso"]}
-          labelFormatter={(label) => `t = ${label}`}
+          labelFormatter={(label: number) => `t = ${formatMmSs(label)}`}
           contentStyle={{
             borderRadius: 12,
             border: "1px solid rgba(148, 163, 184, 0.25)",
@@ -94,9 +114,25 @@ export function CurveExamplesSection() {
 
       {ciclo ? (
         <Card className="mt-6 rounded-2xl bg-white p-4 shadow-md md:p-6">
-          <CardTitle className="mb-1 flex items-center gap-2 text-lg font-semibold">
-            <span aria-hidden>{ciclo.emoji}</span> {ciclo.title}
-          </CardTitle>
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <CardTitle className="flex items-center gap-2 text-lg font-semibold">
+              <span aria-hidden>{ciclo.emoji}</span> {ciclo.title}
+            </CardTitle>
+            {ciclo.bands ? (
+              <div className="flex flex-wrap gap-3 text-xs font-medium text-gray-500">
+                {ciclo.bands.map((band) => (
+                  <span key={band.label} className="flex items-center gap-1.5">
+                    <span
+                      className="h-2.5 w-2.5 rounded-sm"
+                      style={{ backgroundColor: band.color }}
+                      aria-hidden
+                    />
+                    {band.label}
+                  </span>
+                ))}
+              </div>
+            ) : null}
+          </div>
           <p className="mb-2 text-xs font-medium uppercase tracking-wide text-gray-400">
             {ciclo.attribution}
           </p>

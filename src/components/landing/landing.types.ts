@@ -22,8 +22,15 @@ export type CarouselImageConfig = {
 };
 
 export type CurvePoint = {
-  t: string;
+  t: number;
   w: number;
+};
+
+export type CurveBand = {
+  label: string;
+  from: number;
+  to: number;
+  color: string;
 };
 
 export type CurveExampleItem = {
@@ -33,6 +40,7 @@ export type CurveExampleItem = {
   description: string;
   points: CurvePoint[];
   colorVar: string;
+  bands?: CurveBand[];
 };
 
 export type VideoCardItem = {
