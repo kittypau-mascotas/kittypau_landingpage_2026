@@ -21,14 +21,18 @@ export type CarouselImageConfig = {
   rotateDeg?: number;
 };
 
+export type CurvePoint = {
+  t: string;
+  w: number;
+};
+
 export type CurveExampleItem = {
   emoji: string;
   title: string;
   attribution: string;
   description: string;
-  points: number[];
-  strokeVar: string;
-  fillVar: string;
+  points: CurvePoint[];
+  colorVar: string;
 };
 
 export type VideoCardItem = {

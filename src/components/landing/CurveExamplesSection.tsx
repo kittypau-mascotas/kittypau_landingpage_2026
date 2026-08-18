@@ -1,8 +1,71 @@
+import {
+  Area,
+  AreaChart,
+  CartesianGrid,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
 import { SectionHeading } from "./SectionHeading";
 import { SectionShell } from "./SectionShell";
-import { MiniAreaChart } from "./MiniAreaChart";
 import { curveExamplesData } from "./landing.data";
+import type { CurveExampleItem } from "./landing.types";
+
+function CurveChart({ curve }: { curve: CurveExampleItem }) {
+  const color = `hsl(var(${curve.colorVar}))`;
+  const gradientId = `curve-gradient-${curve.colorVar.replace(/[^a-z]/gi, "")}`;
+
+  return (
+    <ResponsiveContainer width="100%" height={160}>
+      <AreaChart data={curve.points} margin={{ top: 8, right: 8, left: 0, bottom: 0 }}>
+        <defs>
+          <linearGradient id={gradientId} x1="0" y1="0" x2="0" y2="1">
+            <stop offset="5%" stopColor={color} stopOpacity={0.32} />
+            <stop offset="95%" stopColor={color} stopOpacity={0.02} />
+          </linearGradient>
+        </defs>
+        <CartesianGrid strokeDasharray="3 6" stroke="rgba(148, 163, 184, 0.25)" vertical={false} />
+        <XAxis
+          dataKey="t"
+          tick={{ fontSize: 10, fill: "#9ca3af" }}
+          tickLine={false}
+          axisLine={{ stroke: "rgba(148, 163, 184, 0.35)" }}
+          interval="preserveStartEnd"
+          minTickGap={24}
+        />
+        <YAxis
+          tick={{ fontSize: 10, fill: "#9ca3af" }}
+          tickLine={false}
+          axisLine={false}
+          width={44}
+          domain={["dataMin - 4", "dataMax + 4"]}
+          unit="g"
+        />
+        <Tooltip
+          formatter={(value: number) => [`${value} g`, "Peso"]}
+          labelFormatter={(label) => `t = ${label}`}
+          contentStyle={{
+            borderRadius: 12,
+            border: "1px solid rgba(148, 163, 184, 0.25)",
+            fontSize: 12,
+            boxShadow: "0 8px 24px rgba(15,23,42,0.10)",
+          }}
+        />
+        <Area
+          type="monotone"
+          dataKey="w"
+          stroke={color}
+          strokeWidth={2.5}
+          fill={`url(#${gradientId})`}
+          dot={false}
+          activeDot={{ r: 4, strokeWidth: 0 }}
+        />
+      </AreaChart>
+    </ResponsiveContainer>
+  );
+}
 
 export function CurveExamplesSection() {
   return (
@@ -15,20 +78,14 @@ export function CurveExamplesSection() {
       <div className="grid gap-6 md:grid-cols-3">
         {curveExamplesData.map((curve) => (
           <Card key={curve.title} className="rounded-2xl bg-white p-4 shadow-md">
-            <CardTitle className="mb-2 flex items-center gap-2 text-lg font-semibold">
+            <CardTitle className="mb-1 flex items-center gap-2 text-lg font-semibold">
               <span aria-hidden>{curve.emoji}</span> {curve.title}
             </CardTitle>
-            <p className="mb-3 text-xs font-medium uppercase tracking-wide text-gray-400">
+            <p className="mb-2 text-xs font-medium uppercase tracking-wide text-gray-400">
               {curve.attribution}
             </p>
-            <div className="h-[140px] w-full">
-              <MiniAreaChart
-                values={curve.points}
-                stroke={`hsl(var(${curve.strokeVar}))`}
-                fill={`hsl(var(${curve.fillVar}) / 0.22)`}
-              />
-            </div>
-            <CardDescription className="mt-4">{curve.description}</CardDescription>
+            <CurveChart curve={curve} />
+            <CardDescription className="mt-3">{curve.description}</CardDescription>
           </Card>
         ))}
       </div>
