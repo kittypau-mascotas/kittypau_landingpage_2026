@@ -1,6 +1,7 @@
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
 import { SectionHeading } from "./SectionHeading";
 import { SectionShell } from "./SectionShell";
+import { FlowSection } from "./FlowSection";
 import { CurveChart } from "./CurveChart";
 import { curveExamplesData } from "./landing.data";
 
@@ -20,6 +21,10 @@ export function FeaturesSection() {
         description="KittyPau convierte la rutina de tu mascota en informacion util para cuidar mejor: mide, registra y resume lo que pasa en su dia a dia."
         className="mb-12"
       />
+
+      <div className="mb-12">
+        <FlowSection />
+      </div>
 
       <div className="grid gap-6 md:grid-cols-3">
         {[alimentacion, servido, ruido].map((curve) => (
