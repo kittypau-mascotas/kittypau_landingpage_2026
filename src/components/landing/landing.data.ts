@@ -99,6 +99,13 @@ export const featuresData: LandingFeature[] = [
   },
 ];
 
+// Colores de categoria tal como estan definidos en CATEGORIAS dentro de
+// Investigacion/Ciclo_Alpha_v2/fase_0_ruido/app_anotacion_av2.py (la app real de anotacion) -
+// alimentacion "#00b45a" (verde), servido "#1e64ff" (azul) - mismos colores que la app usa
+// para las franjas (add_vrect) sobre el grafico de peso.
+const APP_ANOTACION_COLOR_ALIMENTACION = "#00b45a";
+const APP_ANOTACION_COLOR_SERVIDO = "#1e64ff";
+
 export const curveExamplesData: CurveExampleItem[] = [
   {
     emoji: "🍽️",
@@ -106,11 +113,11 @@ export const curveExamplesData: CurveExampleItem[] = [
     attribution: "Segmento real, KPCL0034 · 6 jun 2026",
     description: "El peso baja en escalones mientras el gato come: cada bocado resta unos gramos del plato. Esa bajada gradual y sostenida es la forma que el motor matematico usa para reconocer un evento real de alimentacion.",
     points: [
-      { t: "0:00", w: 138 }, { t: "0:29", w: 138 }, { t: "1:00", w: 138 }, { t: "1:31", w: 138 },
-      { t: "2:00", w: 135 }, { t: "2:30", w: 133 }, { t: "3:00", w: 137 }, { t: "3:30", w: 129 },
-      { t: "4:00", w: 136 }, { t: "4:30", w: 127 }, { t: "5:00", w: 123 }, { t: "5:30", w: 125 },
-      { t: "6:00", w: 125 }, { t: "6:30", w: 125 }, { t: "7:00", w: 129 }, { t: "7:30", w: 123 },
-      { t: "8:00", w: 123 }, { t: "8:30", w: 123 },
+      { t: 0, w: 138 }, { t: 30, w: 138 }, { t: 60, w: 138 }, { t: 91, w: 138 },
+      { t: 120, w: 135 }, { t: 150, w: 133 }, { t: 180, w: 137 }, { t: 210, w: 129 },
+      { t: 240, w: 136 }, { t: 270, w: 127 }, { t: 300, w: 123 }, { t: 330, w: 125 },
+      { t: 360, w: 125 }, { t: 390, w: 125 }, { t: 420, w: 129 }, { t: 450, w: 123 },
+      { t: 480, w: 123 }, { t: 510, w: 123 },
     ],
     colorVar: "--accent-green",
   },
@@ -120,8 +127,8 @@ export const curveExamplesData: CurveExampleItem[] = [
     attribution: "Segmento real, KPCL0034 · 24 jun 2026",
     description: "El peso sube de golpe cuando se agrega alimento al plato: un salto unico y sostenido, sin bocados despues. El motor distingue esto de \"alimentacion\" por la subida abrupta en vez de una bajada gradual.",
     points: [
-      { t: "0:00", w: 114 }, { t: "0:30", w: 114 }, { t: "1:00", w: 114 }, { t: "1:30", w: 114 },
-      { t: "2:00", w: 114 }, { t: "2:30", w: 175 }, { t: "3:00", w: 175 }, { t: "3:30", w: 175 },
+      { t: 0, w: 114 }, { t: 30, w: 114 }, { t: 60, w: 114 }, { t: 90, w: 114 },
+      { t: 120, w: 114 }, { t: 150, w: 175 }, { t: 180, w: 175 }, { t: 210, w: 175 },
     ],
     colorVar: "--primary",
   },
@@ -131,13 +138,13 @@ export const curveExamplesData: CurveExampleItem[] = [
     attribution: "Segmento real, KPCL0034 · 11 jul 2026",
     description: "Un pico aislado sin causa real -vibracion o interferencia del sensor- que vuelve enseguida a la linea base, sin la tendencia sostenida que si muestran alimentacion y servido.",
     points: [
-      { t: "0:00", w: 90 }, { t: "0:30", w: 90 }, { t: "1:00", w: 90 }, { t: "1:30", w: 90 },
-      { t: "2:00", w: 104 }, { t: "2:30", w: 86 }, { t: "3:00", w: 86 }, { t: "3:30", w: 86 },
-      { t: "4:00", w: 86 }, { t: "4:30", w: 86 }, { t: "5:00", w: 86 }, { t: "5:30", w: 86 },
-      { t: "6:00", w: 86 }, { t: "6:30", w: 86 }, { t: "7:00", w: 86 }, { t: "7:30", w: 86 },
-      { t: "8:00", w: 86 }, { t: "8:30", w: 86 }, { t: "8:59", w: 86 }, { t: "9:30", w: 86 },
-      { t: "10:00", w: 86 }, { t: "10:30", w: 86 }, { t: "11:00", w: 86 }, { t: "11:30", w: 86 },
-      { t: "12:00", w: 86 }, { t: "12:30", w: 86 },
+      { t: 0, w: 90 }, { t: 30, w: 90 }, { t: 60, w: 90 }, { t: 90, w: 90 },
+      { t: 120, w: 104 }, { t: 150, w: 86 }, { t: 180, w: 86 }, { t: 210, w: 86 },
+      { t: 240, w: 86 }, { t: 270, w: 86 }, { t: 300, w: 86 }, { t: 330, w: 86 },
+      { t: 360, w: 86 }, { t: 390, w: 86 }, { t: 420, w: 86 }, { t: 450, w: 86 },
+      { t: 480, w: 86 }, { t: 510, w: 86 }, { t: 540, w: 86 }, { t: 570, w: 86 },
+      { t: 600, w: 86 }, { t: 630, w: 86 }, { t: 660, w: 86 }, { t: 690, w: 86 },
+      { t: 720, w: 86 }, { t: 750, w: 86 },
     ],
     colorVar: "--accent-red",
   },
@@ -145,15 +152,21 @@ export const curveExamplesData: CurveExampleItem[] = [
     emoji: "🟡",
     title: "Ciclo Servido → Alimentación",
     attribution: "Segmento real, KPCL0034 · 15 jun 2026",
-    description: "El ciclo completo que el sistema arma automaticamente: primero un servido (el peso sube al llenar el plato) y despues una o mas alimentaciones (el peso baja mientras el gato come). Es la unidad que resume un evento de comida de principio a fin.",
+    description: "El ciclo completo que el sistema arma automaticamente: primero un servido (el peso sube al llenar el plato) y despues una o mas alimentaciones (el peso baja mientras el gato come). Las franjas de color marcan cada tramo, igual que en la app de anotacion interna.",
     points: [
-      { t: "0:00", w: 143 }, { t: "0:29", w: 141 }, { t: "0:59", w: 141 }, { t: "1:30", w: 141 },
-      { t: "2:00", w: 153 }, { t: "2:30", w: 150 }, { t: "2:59", w: 150 }, { t: "3:29", w: 150 },
-      { t: "4:00", w: 147 }, { t: "4:29", w: 147 }, { t: "5:00", w: 144 }, { t: "5:29", w: 144 },
-      { t: "5:59", w: 148 }, { t: "6:29", w: 148 }, { t: "6:59", w: 137 }, { t: "7:29", w: 137 },
-      { t: "7:59", w: 128 }, { t: "8:29", w: 128 },
+      { t: 0, w: 143 }, { t: 30, w: 141 }, { t: 60, w: 141 }, { t: 90, w: 141 },
+      { t: 120, w: 153 }, { t: 150, w: 150 }, { t: 180, w: 150 }, { t: 210, w: 150 },
+      { t: 240, w: 147 }, { t: 270, w: 147 }, { t: 300, w: 144 }, { t: 330, w: 144 },
+      { t: 360, w: 148 }, { t: 390, w: 148 }, { t: 420, w: 137 }, { t: 450, w: 137 },
+      { t: 480, w: 128 }, { t: 510, w: 128 },
     ],
     colorVar: "--warning",
+    // Ventanas reales de la anotacion (servido#529 11:30-11:31, alimentacion#530 11:31-11:37,
+    // 2026-06-15), en segundos desde el primer punto leido (11:29:09.826 UTC).
+    bands: [
+      { label: "Servido", from: 50, to: 110, color: APP_ANOTACION_COLOR_SERVIDO },
+      { label: "Alimentación", from: 110, to: 470, color: APP_ANOTACION_COLOR_ALIMENTACION },
+    ],
   },
 ];
 
