@@ -4,7 +4,6 @@ import { LandingCarousel } from "@/components/landing/LandingCarousel";
 import { ParallaxBrand } from "@/components/landing/ParallaxBrand";
 import { FeaturesSection } from "@/components/landing/FeaturesSection";
 import { FlowSection } from "@/components/landing/FlowSection";
-import { DashboardPreviewSection } from "@/components/landing/DashboardPreviewSection";
 import { HowItWorksSection } from "@/components/landing/HowItWorksSection";
 import { CurveExamplesSection } from "@/components/landing/CurveExamplesSection";
 import { PlansSection } from "@/components/landing/PlansSection";
@@ -26,9 +25,8 @@ export default function LandingPage() {
 
         <main className="mt-16 space-y-16 pb-8">
           <FeaturesSection />
-          <CurveExamplesSection />
           <FlowSection />
-          <DashboardPreviewSection />
+          <CurveExamplesSection />
           <HowItWorksSection />
           <PlansSection />
           <EarlyAdopterSection />
