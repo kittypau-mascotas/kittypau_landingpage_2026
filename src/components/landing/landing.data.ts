@@ -162,10 +162,11 @@ export const curveExamplesData: CurveExampleItem[] = [
     ],
     colorVar: "--warning",
     // Ventanas reales de la anotacion (servido#529 11:30-11:31, alimentacion#530 11:31-11:37,
-    // 2026-06-15), en segundos desde el primer punto leido (11:29:09.826 UTC).
+    // 2026-06-15), en segundos desde el primer punto leido (11:29:09.826 UTC). Servido extendido
+    // a t=2:00 (120s, el punto donde el peso llega a su pico tras el servido) a pedido explicito.
     bands: [
-      { label: "Servido", from: 50, to: 110, color: APP_ANOTACION_COLOR_SERVIDO },
-      { label: "Alimentación", from: 110, to: 470, color: APP_ANOTACION_COLOR_ALIMENTACION },
+      { label: "Servido", from: 50, to: 120, color: APP_ANOTACION_COLOR_SERVIDO },
+      { label: "Alimentación", from: 120, to: 470, color: APP_ANOTACION_COLOR_ALIMENTACION },
     ],
   },
 ];
