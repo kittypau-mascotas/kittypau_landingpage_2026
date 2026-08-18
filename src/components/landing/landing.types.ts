@@ -1,14 +1,3 @@
-import type { LucideIcon } from "lucide-react";
-
-export type LandingFeature = {
-  title: string;
-  description: string;
-  icon: LucideIcon;
-  hueA: number;
-  hueB: number;
-  subtitle: string;
-};
-
 export type PlanFeature = {
   feature: string;
   free: boolean;

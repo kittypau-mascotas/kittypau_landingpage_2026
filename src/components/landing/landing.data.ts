@@ -1,9 +1,7 @@
-import { BatteryCharging, Shield, Thermometer, UtensilsCrossed } from "lucide-react";
 import type {
   CarouselImageConfig,
   CarouselImageItem,
   CurveExampleItem,
-  LandingFeature,
   HeroData,
   NavItem,
   SocialLink,
@@ -44,41 +42,6 @@ export const planFeatures: PlanFeature[] = [
   { feature: "Multi-mascota", free: false, premium: true },
   { feature: "Reportes para el veterinario", free: false, premium: true },
   { feature: "Soporte prioritario", free: false, premium: true },
-];
-
-export const featuresData: LandingFeature[] = [
-  {
-    title: "Entorno seguro",
-    description: "Detecta cambios de temperatura y humedad para que sepas si el entorno donde está tu mascota sigue siendo seguro y estable.",
-    icon: Thermometer,
-    hueA: 12,
-    hueB: 30,
-    subtitle: "Monitorea el entorno · Temperatura y Humedad",
-  },
-  {
-    title: "Nutrición precisa",
-    description: "Registra comida y agua para entender consumo, detectar bajas o excesos y tomar decisiones mas precisas sobre su alimentacion.",
-    icon: UtensilsCrossed,
-    hueA: 142,
-    hueB: 118,
-    subtitle: "Registra comida y agua · Peso y Gramos",
-  },
-  {
-    title: "Conexion total",
-    description: "Vigila bateria, Wi-Fi y ultima lectura para saber si el dispositivo sigue activo y enviando datos sin interrupciones.",
-    icon: BatteryCharging,
-    hueA: 30,
-    hueB: 12,
-    subtitle: "Vigila el dispositivo · Batería y WiFi",
-  },
-  {
-    title: "Alertas preventivas",
-    description: "Hoy avisa cuando el plato lleva demasiado tiempo bajo (hunger bar). Detrás corre el mismo motor que aprende el patron de cada mascota, camino a alertas cada vez mas anticipadas.",
-    icon: Shield,
-    hueA: 353,
-    hueB: 12,
-    subtitle: "Activa prevencion · Alertas del hunger bar",
-  },
 ];
 
 // Colores de categoria tal como estan definidos en CATEGORIAS dentro de
