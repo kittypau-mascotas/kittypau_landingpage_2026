@@ -1,9 +1,3 @@
-export type PlanFeature = {
-  feature: string;
-  free: boolean;
-  premium: boolean;
-};
-
 export type CarouselImageItem = string;
 export type CarouselImageConfig = {
   src: string;
