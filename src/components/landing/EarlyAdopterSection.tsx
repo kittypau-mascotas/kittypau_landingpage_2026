@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { CheckCircle, Gift } from "lucide-react";
 import { VideoEmbedCard } from "./VideoEmbedCard";
+import { earlyAdopterFormUrl } from "./landing.data";
 
 export function EarlyAdopterSection() {
   return (
@@ -19,9 +20,10 @@ export function EarlyAdopterSection() {
             <li className="flex items-start gap-3">
               <Gift className="mt-1 h-6 w-6 flex-shrink-0 text-primary" />
               <div>
-                <h4 className="font-semibold text-foreground">Dispositivo y App Premium Gratis</h4>
+                <h4 className="font-semibold text-foreground">Acceso anticipado</h4>
                 <p className="text-sm text-foreground/70">
-                  Recibe el dispositivo y acceso a la App Premium sin costo por 12 meses.
+                  Sé de los primeros en probar el dispositivo real y las funciones que vamos
+                  liberando, antes que el resto.
                 </p>
               </div>
             </li>
@@ -47,11 +49,7 @@ export function EarlyAdopterSection() {
             asChild
             className="min-h-[52px] px-8 text-lg font-bold bg-primary text-primary-foreground hover:opacity-90"
           >
-            <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSd-Gr6pYmbmiPY7871SgSPRJ52ynLA1p6fL5Z6ZGhWTtLQQYw/viewform?usp=dialog"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href={earlyAdopterFormUrl} target="_blank" rel="noopener noreferrer">
               Quiero ser Early Adopter
             </a>
           </Button>

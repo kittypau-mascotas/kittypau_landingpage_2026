@@ -5,13 +5,20 @@ import type {
   HeroData,
   NavItem,
   SocialLink,
-  PlanFeature,
   VideoCardItem,
 } from "./landing.types";
 
 export const loginUrl = "https://kittypau-app.vercel.app/login";
 
 export const featuredVideoId = "5BM2d6lbOYA";
+
+// Formulario real usado hoy como mecanismo de acceso anticipado (Early Adopter / lista de
+// espera Premium) - no hay pasarela de pago ni columna is_premium/plan_type en Supabase
+// (verificado contra Knowledge/05_API y Knowledge/06_BaseDatos de kittypau_2026_hivemq), asi
+// que "Premium" todavia no es algo que se pueda comprar dentro de la app - este formulario es
+// el unico paso real que existe hoy para mostrar interes.
+export const earlyAdopterFormUrl =
+  "https://docs.google.com/forms/d/e/1FAIpQLSd-Gr6pYmbmiPY7871SgSPRJ52ynLA1p6fL5Z6ZGhWTtLQQYw/viewform?usp=dialog";
 
 export const carouselImages: CarouselImageConfig[] = [
   { src: "/prototipo/proto1.jpg", rotateDeg: -90 },
@@ -28,20 +35,6 @@ export const carouselImages: CarouselImageConfig[] = [
   { src: "/carousel-images/6.jpg" },
   { src: "/carousel-images/7.jpg" },
   { src: "/carousel-images/8.jpg" },
-];
-
-export const planFeatures: PlanFeature[] = [
-  { feature: "Datos en tiempo real", free: true, premium: true },
-  { feature: "1 dispositivo KittyPau", free: true, premium: true },
-  { feature: "Estado del dispositivo (batería, WiFi)", free: true, premium: true },
-  { feature: "Registro de alimentación e hidratación", free: true, premium: true },
-  { feature: "Historial de 7 días", free: true, premium: true },
-  { feature: "Historial de 90 días", free: false, premium: true },
-  { feature: "Alertas preventivas inteligentes", free: false, premium: true },
-  { feature: "Analítica avanzada de hábitos", free: false, premium: true },
-  { feature: "Multi-mascota", free: false, premium: true },
-  { feature: "Reportes para el veterinario", free: false, premium: true },
-  { feature: "Soporte prioritario", free: false, premium: true },
 ];
 
 // Colores de categoria tal como estan definidos en CATEGORIAS dentro de

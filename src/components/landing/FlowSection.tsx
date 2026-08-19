@@ -13,7 +13,7 @@ export function FlowSection() {
         <div className="flex flex-col items-center text-center bg-white rounded-2xl shadow-md p-5 w-40">
           <Brain className="h-12 w-12 text-purple-400 mb-3" />
           <p className="font-semibold text-purple-500 text-sm">IA + Data</p>
-          <p className="text-xs text-gray-400 mt-1">ML · Patrones · Anomalias</p>
+          <p className="text-xs text-gray-400 mt-1">Supabase · Reglas · IA en camino</p>
         </div>
         <div className="text-gray-300 text-3xl mx-3 rotate-90 md:rotate-0">›</div>
         <div className="flex flex-col items-center text-center bg-white rounded-2xl shadow-md p-5 w-40">
